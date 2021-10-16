@@ -17,7 +17,7 @@ def hello_world():
 	return{"aceptado":aceptado}
 
   
-
+f=0
 
 @app.route("/form")
 def form():
@@ -30,6 +30,16 @@ def clientes():
 @app.route("/clientes/<id>",methods=['get'])
 def cliente(id):
 	return{"cliente":{"id":id,"Nombre":"NN"}}
+
+@app.route("/register",methods=['post'])
+def crear_cliente():
+	global f
+	nombre= request.form.get("nombre")
+	apellido=request.form.get("apellido")
+	print("Creando cliente...")
+	f=f+1
+	return {"cliente":{"id":f,"nombre":nombre,"apellido":apellido}}
+
 
 if __name__=='__main__':
 	app.run()
