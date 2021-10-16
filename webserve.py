@@ -10,7 +10,7 @@ def hello_world():
 	#edad=request.args.get("edad")
 	nombre=request.form.get("nombre")
 	edad=request.form.get("edad")
-	return f"<h1> Bienvenido {nombre}</h1><h2>Usted tiene {edad}</h2>"
+	return render_template("bienvenido.html",nombre=nombre,edad=edad)
   
 
 
