@@ -4,12 +4,10 @@ from flask import render_template
 
 app = Flask(__name__)
 
-@app.route("/",methods=['get','post'])
+@app.route("/",methods=['post'])
 def hello_world():
-	#nombre=request.args.post("nombre")
-	#edad=request.args.get("edad")
 	nombre=request.form.get("nombre")
-	edad=request.form.get("edad")
+	edad=int(request.form.get("edad"))
 	return render_template("bienvenido.html",nombre=nombre,edad=edad)
   
 
